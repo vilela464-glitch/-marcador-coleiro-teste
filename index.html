@@ -155,12 +155,12 @@ input,select{width:100%;padding:13px;margin:7px 0;background:#0c171f;border:2px 
 
   <div class="app">
 
-    <header class="app-header">
-      <button class="headbtn" id="back" aria-label="Voltar">←</button>
-      <h1>Contagem</h1>
-      <button class="headbtn" id="settings"
-        aria-label="Configurações">⚙</button>
-    </header>
+    
+<header class="app-header" hidden>
+  <button id="back" hidden>←</button>
+  <button id="settings" hidden>⚙</button>
+</header>
+
 
     <main>
 
@@ -305,6 +305,29 @@ const ADMIN_UID = "P2xlWCfM8ESIkoyTfkVjprhjiLz1";
 const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
 const db = getFirestore(firebaseApp);
+
+const avisoConexao = setTimeout(() => {
+  const tela = document.getElementById("carregando");
+
+  if (tela && !tela.hidden) {
+    tela.innerHTML = `
+      <h2 style="color:#ffca28">
+        Conexão demorando
+      </h2>
+      <p>
+        O Firebase não concluiu a verificação
+        de acesso no tempo esperado.
+      </p>
+      <button id="tentarNovamente" class="btn">
+        TENTAR NOVAMENTE
+      </button>
+    `;
+
+    document.getElementById(
+      "tentarNovamente"
+    ).onclick = () => location.reload();
+  }
+}, 12000);
 
 const el = id => document.getElementById(id);
 
