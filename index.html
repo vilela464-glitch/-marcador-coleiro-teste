@@ -716,7 +716,7 @@ function criarMarcadorNovo() {
     $('time').textContent=`${Math.floor(remain/60).toString().padStart(2,'0')}:${(remain%60).toString().padStart(2,'0')}`;
     $('total').textContent=s.count;
     const minutes=s.elapsed/60;
-    const average=minutes>0?s.count/Math.max(1,minutes):0;
+    const average=minutes>0?s.count/minutes:0;
     $('avg').textContent=average.toLocaleString('pt-BR',{minimumFractionDigits:1,maximumFractionDigits:1});
     $('projection').textContent=minutes>0?Math.round(average*s.target).toLocaleString('pt-BR'):'0';
     $('startPause').textContent=s.finished?'FINALIZADO':s.running?'PAUSAR':s.started?'RETOMAR':'INICIAR';
