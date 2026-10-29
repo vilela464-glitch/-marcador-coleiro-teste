@@ -99,6 +99,33 @@ input,select{width:100%;padding:13px;margin:7px 0;background:#0c171f;border:2px 
 .big-number{font-size:60px}
 .action{font-size:11px}
 }
+
+/* NOVO LAYOUT DOS BOTÕES */
+.controls {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+}
+
+.controls .tap {
+  order: 1;
+  width: 100% !important;
+  min-height: 250px !important;
+}
+
+.controls .controls-left {
+  order: 2;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 12px !important;
+  width: 100% !important;
+}
+
+.controls .controls-left button {
+  width: 100% !important;
+  min-height: 75px !important;
+}
+
 </style>
 </head>
 
