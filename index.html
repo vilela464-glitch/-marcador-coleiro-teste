@@ -968,9 +968,11 @@ function criarMarcadorNovo() {
     );
 
     // A previsão só aparece após um minuto completo.
-    const projection = s.elapsed >= 60
-      ? Math.round(average * s.target)
-      : 0;
+    
+const projection = s.elapsed > 0
+  ? Math.round(average * s.target)
+  : 0;
+
 
     $("projection").textContent =
       projection.toLocaleString("pt-BR");
